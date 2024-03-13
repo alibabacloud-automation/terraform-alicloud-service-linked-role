@@ -13,7 +13,5 @@ variable "roles" {
 variable "services" {
   description = "The service linked role service. "
   type        = list(string)
-  default = [
-
-  ]
+  default     = []
 }
