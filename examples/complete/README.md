@@ -1,4 +1,6 @@
-# # Complete service role example for Hybrid Backup Recovery
+# Complete
+
+Configuration in this directory creates a several service linked role.
 
 ## Usage
 

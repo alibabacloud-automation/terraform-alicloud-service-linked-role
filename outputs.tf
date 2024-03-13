@@ -5,7 +5,6 @@ output "service_linked_role_names" {
   ])
 }
 
-
 output "ram_role_names" {
   description = "The name of the role"
   value = toset([

@@ -1,7 +1,5 @@
 data "alicloud_ram_roles" "exist_roles" {
-   
 }
-
 
 #https://www.alibabacloud.com/help/en/doc-detail/141701.html
 resource "alicloud_ram_role" "role" {
