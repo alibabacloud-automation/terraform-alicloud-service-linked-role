@@ -48,6 +48,12 @@ locals {
       description_cn = "用于AnalyticDB for MySQL（AnalyticDB for MySQL）的服务关联角色，AnalyticDB for MySQL使用此角色来访问您在日志服务中的资源。"
       policy_name    = "AliyunServiceRolePolicyForAnalyticDBForMySQL"
     }
+    AliyunServiceRoleForADSDiskEncrypt = {
+      id             = "diskencryption.ads.aliyuncs.com"
+      description    = "Service Linked Role for AnalyticDB for MySQL - DiskEncryption. AnalyticDB for MySQL - DiskEncryption will use this role to access your resources in other services."
+      description_cn = "用于云原生数据仓库AnalyticDB MySQL版 - 磁盘加密（AnalyticDB for MySQL - DiskEncryption）的服务关联角色，AnalyticDB for MySQL - DiskEncryption使用此角色来访问您在其他云产品中的资源。"
+      policy_name    = "AliyunServiceRolePolicyForADSDiskEncrypt"
+    }
     AliyunServiceRoleForADBPG = {
       id             = "adbpg.aliyuncs.com"
       description    = "Service Linked Role for AnalyticDB PostgreSQL. AnalyticDB PostgreSQL will use this role to access your resources in other services."
