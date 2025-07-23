@@ -334,8 +334,11 @@ variable "service_linked_roles" {
       "AliyunServiceRoleForAlikafka",
       "AliyunServiceRoleForAlikafkaETL"
     ]
-    alidns   = ["AliyunServiceRoleForDNS"]
-    adb      = ["AliyunServiceRoleForAnalyticDBForMySQL"]
+    alidns = ["AliyunServiceRoleForDNS"]
+    adb = [
+      "AliyunServiceRoleForAnalyticDBForMySQL",
+      "AliyunServiceRoleForADSDiskEncrypt"
+    ]
     gpdb     = ["AliyunServiceRoleForADBPG"]
     ddos_bgp = ["AliyunServiceRoleForDDoSBgp"]
     api_gateway = [
