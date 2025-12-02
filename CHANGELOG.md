@@ -1,3 +1,5 @@
+## [1.1.1](https://github.com/alibabacloud-automation/terraform-alicloud-service-linked-role/compare/v1.1.0...v1.1.1) (2025-12-02)
+
 ## 1.2.0 (Unreleased)
 ## 1.1.0 (2024-04-02)
 
