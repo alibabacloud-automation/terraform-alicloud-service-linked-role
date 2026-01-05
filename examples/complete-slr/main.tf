@@ -82,19 +82,19 @@ module "all" {
     "vpn",
     "waf"
   ]
-  // alikafka's linked roles using role name to launch
+  # alikafka's linked roles using role name to launch
   service_linked_role_with_role_names = [
     "AliyunServiceRoleForAlikafkaConnector",
     "AliyunServiceRoleForAlikafkaInstanceEncryption",
     "AliyunServiceRoleForAlikafka",
     "AliyunServiceRoleForAlikafkaETL"
   ]
-  // arms's linked roles using service id to launch
+  # arms's linked roles using service id to launch
   service_linked_role_with_service_ids = [
     "arms.aliyuncs.com",
     "security.arms.aliyuncs.com"
   ]
-  // the following slr can not be deleted and skip them when testing
+  # the following slr can not be deleted and skip them when testing
   exclude_service_linked_role_with_role_names = [
     "AliyunServiceRoleForApiGateway",
     "AliyunServiceRoleForApiGatewayConnectUserVpc",
@@ -125,7 +125,7 @@ module "all" {
     "AliyunServiceRoleForSLSAlert",
     "AliyunServiceRoleForSearchEngine",
     "AliyunServiceRolePolicyForImp",
-    // the following slr created by enable module
+    # the following slr created by enable module
     "AliyunServiceRoleForCEN",
     "AliyunServiceRoleForPrivatelink",
     "AliyunServiceRoleForSLSAudit"

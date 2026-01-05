@@ -44,40 +44,40 @@ locals {
 }
 
 resource "alicloud_ram_role" "sr_with_service_names" {
-  for_each    = local.sr_with_service_names_and_exclude
-  name        = each.key
-  document    = lookup(local.service_roles[each.key], "document")
-  description = lookup(local.service_roles[each.key], "description")
+  for_each                    = local.sr_with_service_names_and_exclude
+  role_name                   = each.key
+  assume_role_policy_document = local.service_roles[each.key]["document"]
+  description                 = local.service_roles[each.key]["description"]
 }
 
 resource "alicloud_ram_role_policy_attachment" "sr_with_service_names" {
   for_each    = local.sr_with_service_names_and_exclude
-  policy_name = lookup(local.service_roles[each.key], "policy_name")
+  policy_name = local.service_roles[each.key]["policy_name"]
   policy_type = "System"
   role_name   = each.key
   depends_on  = [alicloud_ram_role.sr_with_service_names]
 }
 
 resource "alicloud_ram_role" "sr_with_role_names" {
-  for_each    = local.sr_with_role_names
-  name        = each.key
-  document    = lookup(local.service_roles[each.key], "document")
-  description = lookup(local.service_roles[each.key], "description")
+  for_each                    = local.sr_with_role_names
+  role_name                   = each.key
+  assume_role_policy_document = local.service_roles[each.key]["document"]
+  description                 = local.service_roles[each.key]["description"]
 }
 
 resource "alicloud_ram_role_policy_attachment" "sr_with_role_names" {
   for_each    = local.sr_with_role_names
-  policy_name = lookup(local.service_roles[each.key], "policy_name")
+  policy_name = local.service_roles[each.key]["policy_name"]
   policy_type = "System"
   role_name   = each.key
   depends_on  = [alicloud_ram_role.sr_with_role_names]
 }
 
 resource "alicloud_ram_role" "sr_with_self_roles" {
-  for_each    = local.sr_with_self_roles
-  name        = each.value.name
-  document    = each.value.document
-  description = each.value.description
+  for_each                    = local.sr_with_self_roles
+  role_name                   = each.value.name
+  assume_role_policy_document = each.value.document
+  description                 = each.value.description
 }
 
 resource "alicloud_ram_role_policy_attachment" "sr_with_self_roles" {
@@ -90,12 +90,12 @@ resource "alicloud_ram_role_policy_attachment" "sr_with_self_roles" {
 
 resource "alicloud_resource_manager_service_linked_role" "slr_with_service_names" {
   for_each     = local.slr_with_service_names_and_exclude
-  service_name = lookup(local.service_linked_roles[each.key], "id")
+  service_name = local.service_linked_roles[each.key]["id"]
 }
 
 resource "alicloud_resource_manager_service_linked_role" "slr_with_role_names" {
   for_each     = local.slr_with_role_names
-  service_name = lookup(local.service_linked_roles[each.key], "id")
+  service_name = local.service_linked_roles[each.key]["id"]
 }
 
 resource "alicloud_resource_manager_service_linked_role" "slr_with_service_ids" {

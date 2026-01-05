@@ -1104,6 +1104,12 @@ locals {
       description_cn = "用于消息队列-异地多活（ONS-MultisiteHA）的服务关联角色，ONS-MultisiteHA使用此角色来访问您在其他云产品中的资源。"
       policy_name    = "AliyunServiceRolePolicyForOnsMultisiteHA"
     }
+    AliyunServiceRoleForRMQ = {
+      id             = "rmq.aliyuncs.com"
+      description    = "Service Linked Role for RocketMQ. RocketMQ will use this role to access your resources in other services."
+      description_cn = "用于消息队列（RocketMQ）的服务关联角色，RocketMQ使用此角色来访问您在其他云产品中的资源。"
+      policy_name    = "AliyunServiceRolePolicyForRMQ"
+    }
     AliyunServiceRoleForCasMonitor = {
       id             = "monitor.cas.aliyuncs.com"
       description    = "Service Linked Role for Cas - Monitor. Cas - Monitor will use this role to access your resources in other services."

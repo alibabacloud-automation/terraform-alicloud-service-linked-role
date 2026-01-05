@@ -1,4 +1,5 @@
 variable "kubernetes_roles" {
+  description = "The roles of container service kubernetes"
   type = list(object({
     role_name        = string
     role_document    = string

@@ -12,15 +12,15 @@ variable "service_role_with_role_names" {
 variable "service_role_with_self_roles" {
   description = "A list of self-defined service roles. Each role object should contains role name, document, description, policy type and policy name. More system service roles service_role.tf file."
   type = list(object({
-    // self role name
+    # self role name
     name = string
-    // self role document
+    # self role document
     document = string
-    // self role description
+    # self role description
     description = string
-    // policy type used to attach with self role
+    # policy type used to attach with self role
     policy_type = string
-    // policy name used to attach with self role
+    # policy name used to attach with self role
     policy_name = string
   }))
   default = []
@@ -133,7 +133,9 @@ variable "service_roles" {
       "AliyunCSManagedCostRole",
       "AliyunCSManagedNimitzRole",
       "AliyunCSManagedMseRole",
-      "AliyunCSManagedTraceRole"
+      "AliyunCSManagedTraceRole",
+      "AliyunCSManagedCsiProvisionerRole",
+      "AliyunCSManagedCsiPluginRole"
     ]
     das  = ["AliyunHDMDefaultRole"]
     dms  = ["AliyunDMSDefaultRole"]
@@ -198,7 +200,7 @@ variable "service_roles" {
       "AliyunFCLogExecutionRole",
       "AliyunFCServerlessDevsRole"
     ]
-    // TODO: currently creating graph_database role does not works, skip it
+    # TODO: currently creating graph_database role does not works, skip it
     #        graph_database = ["AliyunGDSAccessingOSSRole"]
     hbase = ["AliyunHBaseDefaultRole"]
     hbr = [
@@ -586,7 +588,8 @@ variable "service_linked_roles" {
     ]
     rocketmq = [
       "AliyunServiceRoleForOns",
-      "AliyunServiceRoleForOnsMultisiteHA"
+      "AliyunServiceRoleForOnsMultisiteHA",
+      "AliyunServiceRoleForRMQ"
     ]
     ssl_certificate = ["AliyunServiceRoleForCasMonitor"]
     sae             = ["AliyunServiceRoleForSAE"]
