@@ -1,13 +1,13 @@
 #https://www.alibabacloud.com/help/en/doc-detail/141701.html
 resource "alicloud_ram_role" "role" {
-  for_each = { for r in var.roles : r.role_name => r }
-  name        = each.value.role_name
-  document    = each.value.role_document
-  description = each.value.role_description
+  for_each                    = { for r in var.roles : r.role_name => r }
+  role_name                   = each.value.role_name
+  assume_role_policy_document = each.value.role_document
+  description                 = each.value.role_description
 }
 
 resource "alicloud_ram_role_policy_attachment" "attach" {
-  for_each = { for r in var.roles : r.role_name => r}
+  for_each = { for r in var.roles : r.role_name => r }
 
   policy_name = each.value.policy_name
   policy_type = "System"

@@ -1533,6 +1533,48 @@ locals {
         }
       EOF
     }
+    AliyunCSManagedCsiProvisionerRole = {
+      description    = "CS will use this role to access your resources in other services."
+      description_cn = "ACK容器服务集群中的CSI存储控制面组件使用该角色访问您在ECS、NAS、ENS、OSS等服务中的资源接口"
+      policy_name    = "AliyunCSManagedCsiProvisionerRolePolicy"
+      document       = <<EOF
+        {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "cs.aliyuncs.com"
+                ]
+              }
+            }
+          ],
+          "Version": "1"
+        }
+      EOF
+    }
+    AliyunCSManagedCsiPluginRole = {
+      description    = "CS will use this role to access your resources in other services."
+      description_cn = "ACK容器服务集群中的CSI存储数据面组件使用该角色访问您在ECS等服务中的资源接口"
+      policy_name    = "AliyunCSManagedCsiPluginRolePolicy"
+      document       = <<EOF
+        {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "cs.aliyuncs.com"
+                ]
+              }
+            }
+          ],
+          "Version": "1"
+        }
+      EOF
+    }
     AliyunHDMDefaultRole = {
       description    = "Database Autonomy Service will use this role to access your resources in other services."
       description_cn = "数据库自治服务(DAS，前HDM)默认使用此角色来访问您在其他云产品中的资源"

@@ -1,5 +1,6 @@
 variable "eventbridge_services" {
-  type = list(string)
+  description = "The services of eventbridge"
+  type        = list(string)
   default = [
     "sendevent-fc.eventbridge.aliyuncs.com",
     "sendevent-mns.eventbridge.aliyuncs.com",
